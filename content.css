@@ -1,0 +1,83 @@
+/* ==========================================================
+   Tooltip Flotante de la Extensión (Idéntico al nativo de Netflix)
+   ========================================================== */
+
+/* Wrapper — replica .css-c4ifhj */
+.nflx-custom-tooltip {
+  position: absolute !important;
+  display: none;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0px !important;
+  border: none !important;
+  background-color: transparent !important;
+  border-radius: 0.3rem !important;
+  font-size: 0.8rem !important;
+  opacity: 0;
+  transform: translateZ(0px) !important;
+  transition: opacity 200ms !important;
+  visibility: hidden;
+  will-change: transform, opacity, visibility !important;
+  filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.75)) !important;
+}
+
+.nflx-custom-tooltip.show {
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transition: opacity 200ms !important;
+  visibility: visible !important;
+}
+
+/* Caja del Tooltip — replica .css-1vnabqw */
+.nflx-custom-tooltip-content {
+  position: relative !important;
+  background-color: rgb(230, 230, 230) !important;
+  color: rgb(24, 24, 24) !important;
+  padding: 0.6rem 1.6rem !important;
+  border-radius: 0.3rem !important;
+  font-size: 1.6rem !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  font-family: 'Netflix Sans Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+/* Caret — replica .css-1vnabqw::after */
+.nflx-custom-tooltip-caret {
+  content: "" !important;
+  display: block !important;
+  width: 0px !important;
+  height: 0px !important;
+  position: absolute !important;
+  border-top: 1rem solid rgb(230, 230, 230) !important;
+  border-left: 1rem solid transparent !important;
+  border-right: 1rem solid transparent !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: 95% !important;
+  bottom: unset !important;
+}
+
+/* ==========================================================
+   Ocultación de Tooltips Nativos de Netflix
+   ========================================================== */
+
+/* Bloquea por completo cualquier tooltip nativo de Netflix si nuestro custom tooltip está visible
+   o si el mouse está sobre el botón de información customizado. */
+body:has(.nflx-custom-tooltip.show) .css-c4ifhj,
+body:has(.nflx-custom-tooltip.show) [data-id="toolTip"],
+body:has(.nflx-custom-tooltip.show) div:has(> [data-id="toolTip"]),
+body:has(.nflx-custom-tooltip.show) div:has(> div > [data-id="toolTip"]),
+body:has([data-uia="info-button"]:hover) .css-c4ifhj,
+body:has([data-uia="info-button"]:hover) [data-id="toolTip"],
+body:has([data-uia="info-button"]:hover) div:has(> [data-id="toolTip"]),
+body:has([data-uia="info-button"]:hover) div:has(> div > [data-id="toolTip"]) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
