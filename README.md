@@ -2,6 +2,10 @@
 
 Extensión ligera para Google Chrome que optimiza la experiencia de navegación en **Netflix**, permitiendo explorar títulos sugeridos de forma fluida y sin interrupciones de reproducción.
 
+<p align="center">
+  <img src="antes-vs-despues.png" alt="Antes vs Después" width="500">
+</p>
+
 ---
 
 ## 🚀 Propósito
@@ -18,7 +22,7 @@ Por defecto en Netflix, cuando estás en el modal de detalles de un título y ha
 La extensión está diseñada bajo principios de **cero intrusión**, **alto rendimiento** y **mimetización visual**. A continuación se detalla su comportamiento técnico a nivel de código:
 
 ### 1. Detección y Aislamiento de Contexto (CSS-First)
-Para evitar degradar el rendimiento al hacer scroll o cargar elementos, en [content.js](file:///d:/code/netflix-view/content.js) evitamos parsear datos del tracking context de Netflix en el bucle principal. 
+Para evitar degradar el rendimiento al hacer scroll o cargar elementos, en [content.js](file:///d:/code/netflix-modal-navigator/content.js) evitamos parsear datos del tracking context de Netflix en el bucle principal. 
 - Usamos consultas DOM ultrarrápidas para validar si la tarjeta pertenece exclusivamente al modal de detalles y no al mini-modal hover del inicio:
 ```javascript
 const isInsideDetailModal = card.closest('.detail-modal') || 
@@ -55,9 +59,9 @@ Para que no choquen los tooltips dinámicos de la extensión con los nativos de 
 
 ## 📂 Estructura del Proyecto
 
-* **[manifest.json](file:///d:/code/netflix-view/manifest.json)**: Configuración técnica de la extensión (Declaración de scripts de contenido y estilos con ejecución en `document_end`).
-* **[content.js](file:///d:/code/netflix-view/content.js)**: Lógica principal de inyección de botones, ruteo SPA, control de eventos y ciclo de vida de los tooltips.
-* **[content.css](file:///d:/code/netflix-view/content.css)**: Estilos para emular el tooltip nativo de Netflix de forma exacta (caja, caret, sombras y animaciones de entrada).
+* **[manifest.json](file:///d:/code/netflix-modal-navigator/manifest.json)**: Configuración técnica de la extensión (Declaración de scripts de contenido y estilos con ejecución en `document_end`).
+* **[content.js](file:///d:/code/netflix-modal-navigator/content.js)**: Lógica principal de inyección de botones, ruteo SPA, control de eventos y ciclo de vida de los tooltips.
+* **[content.css](file:///d:/code/netflix-modal-navigator/content.css)**: Estilos para emular el tooltip nativo de Netflix de forma exacta (caja, caret, sombras y animaciones de entrada).
 
 ---
 
@@ -67,4 +71,4 @@ Para que no choquen los tooltips dinámicos de la extensión con los nativos de 
 2. Navega a `chrome://extensions/`
 3. Activa el **"Modo de desarrollador"** (esquina superior derecha).
 4. Haz clic en **"Cargar descomprimida"** (Load unpacked) en la esquina superior izquierda.
-5. Selecciona el directorio raíz del proyecto (`d:\code\netflix-view`).
+5. Selecciona el directorio raíz del proyecto (`d:\code\netflix-modal-navigator`).
