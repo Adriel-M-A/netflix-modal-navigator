@@ -71,4 +71,4 @@ Para que no choquen los tooltips dinámicos de la extensión con los nativos de 
 2. Navega a `chrome://extensions/`
 3. Activa el **"Modo de desarrollador"** (esquina superior derecha).
 4. Haz clic en **"Cargar descomprimida"** (Load unpacked) en la esquina superior izquierda.
-5. Selecciona el directorio raíz del proyecto (`d:\code\netflix-modal-navigator`).
+5. Selecciona el directorio raíz del proyecto.
